@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 class BookPage extends Component {
-  render() {
-    return (
-      <div className="book">
+  render() { console.log(this.props.book)
+  return (
+    <div className="book">
         <div className="book-top">
           <div
             className="book-cover"
@@ -11,9 +11,8 @@ class BookPage extends Component {
               width: 128,
               height: 193,
               backgroundImage:
-                ''
-            }}
-          />
+                `url("${this.props.book.imageLinks.thumbnail}")`
+            }}></div>
           <div className="book-shelf-changer">
             <select>
               <option value="move" disabled>
@@ -26,8 +25,8 @@ class BookPage extends Component {
             </select>
           </div>
         </div>
-        <div className="book-title"></div>
-        <div className="book-authors"></div>
+        <div className="book-title">{this.props.book.title}</div>
+        <div className="book-authors">{this.props.book.authors}</div>
       </div>
     );
   }
