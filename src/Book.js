@@ -14,7 +14,11 @@ class BookPage extends Component {
                 `url("${this.props.book.imageLinks.thumbnail}")`
             }}></div>
           <div className="book-shelf-changer">
-            <select>
+          <select
+            onChange={(event) => this.props.moveToShelf(
+              this.props.book, event.target.value
+            )}
+          >
               <option value="move" disabled>
                 Move to...
               </option>
