@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class BookPage extends Component {
-  render() { console.log(this.props.book)
+  render() { 
   return (
     <div className="book">
         <div className="book-top">
@@ -14,7 +14,7 @@ class BookPage extends Component {
                 `url("${this.props.book.imageLinks.thumbnail}")`
             }}></div>
           <div className="book-shelf-changer">
-          <select value={this.props.selectedShelf}
+          <select value={this.props.book.shelf}
             onChange={(event) => this.props.moveToShelf(
               this.props.book, event.target.value
             )}
