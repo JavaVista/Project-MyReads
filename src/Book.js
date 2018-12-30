@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 class BookPage extends Component {
-  render() { 
+  render() {
+    let backgroundImage = this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : ''
   return (
     <div className="book">
         <div className="book-top">
@@ -11,7 +12,7 @@ class BookPage extends Component {
               width: 128,
               height: 193,
               backgroundImage:
-                `url("${this.props.book.imageLinks.thumbnail}")`
+                `url("${backgroundImage}")`
             }}></div>
           <div className="book-shelf-changer">
           <select value={this.props.book.shelf}
