@@ -31,15 +31,11 @@ class SearchPage extends Component {
   };
 
   render() {
-    const classes=`close-search btn`
+    const classes = `close-search btn`;
     return (
       <div className="search-books">
         <div className="search-books-bar">
-          <Link
-            className={ classes }
-            to="/"
-
-          >
+          <Link className={classes} to="/">
             Close
           </Link>
           <div className="search-books-input-wrapper">
@@ -61,11 +57,21 @@ class SearchPage extends Component {
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
-            {this.state.booksSearch.map(booksSearch => (
-              <li key={booksSearch.id}>
-                <Book book={booksSearch} moveToShelf={this.props.moveToShelf} />
-              </li>
-            ))}
+            {this.state.booksSearch.map(booksSearch => {
+              let bookShelf = 'none';
+              this.props.booksList.map(book =>
+                book.id === booksSearch.id ? (bookShelf = book.shelf) : ''
+              );
+              return (
+                <li key={booksSearch.id}>
+                  <Book
+                    book={booksSearch}
+                    moveToShelf={this.props.moveToShelf}
+                    selectedShelf={bookShelf}
+                  />
+                </li>
+              );
+            })}
           </ol>
         </div>
       </div>
