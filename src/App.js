@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import SearchPage from './Search';
-import MainPage from './Main';
+import SearchPage from './components/Search';
+import MainPage from './components/Main';
 import * as BooksAPI from './BooksAPI';
 import './App.css';
 

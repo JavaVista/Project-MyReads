@@ -1,25 +1,28 @@
 import React, { Component } from 'react';
 
-class BookPage extends Component {
+
+class Book extends Component {
   render() {
-    let backgroundImage = this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : ''
-  return (
-    <div className="book">
+    let thumbnail = this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : '';
+    let { title, authors } = this.props.book;
+    return (
+      <div className="book">
         <div className="book-top">
           <div
             className="book-cover"
             style={{
               width: 128,
               height: 193,
-              backgroundImage:
-                `url("${backgroundImage}")`
-            }}></div>
+              backgroundImage: `url("${thumbnail}")`
+            }}
+          />
           <div className="book-shelf-changer">
-          <select value={this.props.selectedShelf}
-            onChange={(event) => this.props.moveToShelf(
-              this.props.book, event.target.value
-            )}
-          >
+            <select
+              value={this.props.selectedShelf}
+              onChange={event =>
+                this.props.moveToShelf(this.props.book, event.target.value)
+              }
+            >
               <option value="move" disabled>
                 Move to...
               </option>
@@ -30,11 +33,11 @@ class BookPage extends Component {
             </select>
           </div>
         </div>
-        <div className="book-title">{this.props.book.title}</div>
-        <div className="book-authors">{this.props.book.authors}</div>
+        <div className="book-title">{title}</div>
+        <div className="book-authors">{authors}</div>
       </div>
     );
   }
 }
 
-export default BookPage;
+export default Book;
