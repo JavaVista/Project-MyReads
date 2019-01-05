@@ -32,6 +32,7 @@ class SearchPage extends Component {
 
   render() {
     const classes = `close-search btn`;
+    let { booksList, moveToShelf } = this.props;
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -59,14 +60,14 @@ class SearchPage extends Component {
           <ol className="books-grid">
             {this.state.booksSearch.map(booksSearch => {
               let bookShelf = 'none';
-              this.props.booksList.map(book =>
+              booksList.map(book =>
                 book.id === booksSearch.id ? (bookShelf = book.shelf) : ''
               );
               return (
                 <li key={booksSearch.id}>
                   <Book
                     book={booksSearch}
-                    moveToShelf={this.props.moveToShelf}
+                    moveToShelf={moveToShelf}
                     selectedShelf={bookShelf}
                   />
                 </li>
