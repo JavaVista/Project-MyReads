@@ -6,7 +6,8 @@ import * as BooksAPI from '../BooksAPI';
 class SearchPage extends Component {
   state = {
     query: '',
-    booksSearch: []
+    booksSearch: [],
+    noSearch: false
   };
 
   updateQuery = query => {
@@ -21,20 +22,21 @@ class SearchPage extends Component {
       BooksAPI.search(query).then(booksSearch => {
         if (query === this.state.query) {
           if (booksSearch.error) {
-            this.setState({ booksSearch: [] });
+            this.setState({ booksSearch: [], noSearch: true});
           } else {
-            this.setState({ booksSearch: booksSearch });
+            this.setState({ booksSearch: booksSearch, noSearch: false });
           }
         }
       });
     } else {
-      this.setState({ booksSearch: [] });
+      this.setState({ booksSearch: [], noSearch: false });
     }
   };
 
   render() {
     const classes = `close-search btn`;
     let { booksList, moveToShelf } = this.props;
+    let { noSearch } = this.state;
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -75,6 +77,9 @@ class SearchPage extends Component {
                 </li>
               );
             })}
+          {noSearch && (
+            <h3>Your search did not return any books. Please, try again!</h3>
+          )}
           </ol>
         </div>
       </div>
