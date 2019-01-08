@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { HashRouter, Route } from 'react-router-dom';
 import SearchPage from './components/Search';
 import MainPage from './components/Main';
 import * as BooksAPI from './BooksAPI';
@@ -31,28 +31,30 @@ class BooksApp extends React.Component {
 
   render() {
     return (
-      <div className="app">
-        <Route
-          exact
-          path="/"
-          render={() => (
-            <MainPage
-              booksList={this.state.books}
-              moveToShelf={this.moveToShelf}
-            />
-          )}
-        />
-        <Route
-          exact
-          path="/search"
-          render={() => (
-            <SearchPage
-              booksList={this.state.books}
-              moveToShelf={this.moveToShelf}
-            />
-          )}
-        />
-      </div>
+      <HashRouter>
+        <div className="app">
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <MainPage
+                booksList={this.state.books}
+                moveToShelf={this.moveToShelf}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/search"
+            render={() => (
+              <SearchPage
+                booksList={this.state.books}
+                moveToShelf={this.moveToShelf}
+              />
+            )}
+          />
+        </div>
+      </HashRouter>
     );
   }
 }
