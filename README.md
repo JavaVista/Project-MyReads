@@ -10,6 +10,7 @@ Udacity Front-End Developer Nanodegree project. The project emphasizes using Rea
   - [App Functionality](#app-functionality)
     - [Main View](#main-view)
     - [Search View](#search-view)
+    - [Demo](#demo)
   - [Technology](#technology)
   - [Project Instructions](#project-instructions)
     - [Dependencies](#dependencies)
@@ -51,6 +52,10 @@ Results on the search page allow the user to select a shelf category. If a book 
 
 __Note__: The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md). That list of terms are the _only_ terms that will work with the backend, so don't be surprised if your searches for Basket Weaving or Bubble Wrap don't come back with any results.
 
+### Demo
+
+Take a look a the React Bookshelf App
+- [MyReads App](https://javavista.github.io/Project-MyReads/#/)
 
 ## Technology
 
