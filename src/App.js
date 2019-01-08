@@ -21,6 +21,13 @@ class BooksApp extends React.Component {
       this.setState({ books: books });
     });
   }
+/*
+TODO: You should put the setState command inside 'then' part of the update API to ensure consistency. For example, if the API fails your code should not change the books displayed.
+
+BooksAPI.update(book,shelfName).then(() => {this.setState({books: newBooks});});
+
+In order to speed up your app. You can setState using state from the previous state by replacing the book with updated shelf. This way you don't need to call the getAll() API again.
+*/
 
   moveToShelf = (book, shelf) => {
     BooksAPI.update(book, shelf);

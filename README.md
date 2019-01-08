@@ -155,7 +155,7 @@ search(query)
 
 ## Deployment
 
-`npm run build` creates a `build` directory with a production build of your app. Set up your favorite  HTTP server so that a visitor to your site is served `index.html`.
+`npm run build` creates a `build` directory with a production build of your app. Set up your favorite  HTTP server so that a visitor to your site is served `index.html`- .
 
 ## Contributing
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 class Book extends Component {
   render() {
+    //TODO:  You can also put a default image in place of empty string.
     let thumbnail = this.props.book.imageLinks
       ? this.props.book.imageLinks.thumbnail
       : '';
